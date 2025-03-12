@@ -1,33 +1,98 @@
-
 .about-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
-  padding: 3em;
+  width: 100vw;
+  padding: 3em 5vw; /* Adds responsive padding */
+  box-sizing: border-box;
+  text-align: center; /* Centers text for better readability */
 }
+
+/* Headings */
 .about-container h1 {
-  font-size: 5em;
+  font-size: 4.5rem;
   font-weight: 700;
-  color: #ff8800;
-  margin-bottom: 2rem;
+  color: #ff9900;
+  margin-bottom: 1.5rem;
 }
 
 .about-container h2 {
-  font-size: 3em;
-  color: #f6a504;
-  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  color: #ff9900;
+  margin-bottom: 1.5rem;
 }
 
-.about-container p {
-  font-size: 2em;
+/* Paragraph & List */
+.about-container p,
+.about-container ul {
+  font-size: 1.8rem;
   color: #ffffff;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6; /* Improves readability */
+  max-width: 900px; /* Limits width for better formatting */
 }
 
-.about-container ul{
-    font-size: 2em;
-    color: #ffffff;
-    margin-bottom: 2rem;
+/* List Styling */
+.about-container ul {
+  padding-left: 2rem;
+  text-align: left;
+}
+
+.about-container ul li {
+  margin-bottom: 0.8rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .about-container h1 {
+    font-size: 4rem;
+  }
+
+  .about-container h2 {
+    font-size: 2.2rem;
+  }
+
+  .about-container p,
+  .about-container ul {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-container {
+    padding: 2em 3vw;
+  }
+
+  .about-container h1 {
+    font-size: 3rem;
+  }
+
+  .about-container h2 {
+    font-size: 2rem;
+  }
+
+  .about-container p,
+  .about-container ul {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-container {
+    padding: 2em 2vw;
+  }
+
+  .about-container h1 {
+    font-size: 2.5rem;
+  }
+
+  .about-container h2 {
+    font-size: 1.8rem;
+  }
+
+  .about-container p,
+  .about-container ul {
+    font-size: 1.2rem;
+  }
 }

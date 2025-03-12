@@ -1,6 +1,19 @@
-html,body{
+html, body {
   background-color: rgb(57, 55, 55);
-  font-family:'Funnel Display', 'Roboto', sans-serif;
+  font-family: 'Funnel Display', 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
+  width: 100vw;
+  overflow-x: hidden; 
+}
+
+@media (max-width:768px){
+  body{
+    font-size: 14px;
+    margin-right: 40px;
+  }
+  .content{
+    width: 100%;
+    
+  }
 }

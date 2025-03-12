@@ -1,57 +1,73 @@
-footer{
+footer {
     display: flex;
-    flex-direction: space-between;
+    flex-wrap: wrap;
+    justify-content: space-between;
     background-color: #333;
     color: white;
     text-align: center;
-    
-    
-    bottom: 0;
     width: 100%;
-    
-}
-.footer-content{
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    
-    
-    
-   
-}
-.footer-social{
-    flex: 1;
-    display: flex;
-    
-
-    justify-content: center;
-    align-items: center;
-    
-    
-    
-}.footer-social svg{
-    margin: 0 1em;
-    font-size: 2em;
-    
+    max-width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    gap: 20px; /* Adds spacing between elements */
 }
 
-.logo{
-   
+.footer-content,
+.footer-social,
+.logo {
     flex: 1;
-    margin: 0 10em;
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    
+    max-width: 100%;
+    text-align: center;
 }
-.logo img{
-    
-    max-width: 40%;
-    
+
+/* Logo Adjustments */
+.logo {
+    margin: 0 auto;
+    padding: 0 1em;
+}
+
+.logo img {
+    max-width: 150px; /* Sets a max width for mobile scaling */
     height: auto;
     display: block;
+}
 
+/* Social Icons */
+.footer-social svg {
+    margin: 0 0.5em;
+    font-size: 1.5em;
+    transition: transform 0.3s ease-in-out;
+}
+
+.footer-social svg:hover {
+    transform: scale(1.2);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column; /* Stacks elements vertically */
+        text-align: center;
+        padding: 15px;
+    }
+
+    .footer-content,
+    .footer-social,
+    .logo {
+        flex: unset;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .logo img {
+        max-width: 120px; /* Adjusts logo size for mobile */
+    }
+
+    .footer-social svg {
+        font-size: 2em; /* Makes icons slightly larger for touch */
+    }
 }

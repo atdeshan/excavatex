@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect, Suspense } from "react";
+import React, { useRef, useState, useEffect, Suspense, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import "../styles/home.css";
@@ -10,16 +10,24 @@ function Model({ url, rotationY, scale }) {
 
   useEffect(() => {
     const loader = new GLTFLoader();
+    let isMounted = true;
+
     loader.load(url, (gltf) => {
-      setModel(gltf.scene);
+      if (isMounted) {
+        setModel(gltf.scene);
+      }
     });
+
+    return () => {
+      isMounted = false;
+    };
   }, [url]);
 
   useFrame(() => {
     if (modelRef.current) {
       modelRef.current.rotation.y = rotationY;
     }
-  });
+  }, [rotationY]);
 
   if (!model) {
     return null;
@@ -29,8 +37,7 @@ function Model({ url, rotationY, scale }) {
 }
 
 function My3DModel() {
-  const modelURL = `${process.env.PUBLIC_URL}/images/gg.glb`;
-
+  const modelURL = useMemo(() => `${process.env.PUBLIC_URL}/images/gg.glb`, []);
   const [rotationY, setRotationY] = useState(0);
   const [cameraPosition, setCameraPosition] = useState([20, 10, 30]);
   const [modelScale, setModelScale] = useState(1);
@@ -38,16 +45,17 @@ function My3DModel() {
   useEffect(() => {
     const updateResponsiveSettings = () => {
       if (window.innerWidth < 768) {
-        setCameraPosition([30, 0, 40]); // Closer camera for small screens
-        setModelScale(0.5); // Scale down model for mobile
+        setCameraPosition([30, 0, 40]);
+        setModelScale(0.5);
       } else {
-        setCameraPosition([60,0,30]); // Default for larger screens
+        setCameraPosition([60, 0, 30]);
         setModelScale(1);
       }
     };
 
     updateResponsiveSettings();
     window.addEventListener("resize", updateResponsiveSettings);
+    
     return () => window.removeEventListener("resize", updateResponsiveSettings);
   }, []);
 
@@ -59,9 +67,7 @@ function My3DModel() {
     };
 
     window.addEventListener("scroll", handleScroll);
-    window.addEventListener("resize",()=>{
-      window.location.reload();
-    })
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -75,7 +81,6 @@ function My3DModel() {
       </div>
 
       <div className="home_main">
-        
         <div className="description">
           <h1>Excavator Hire</h1>
           <p>
