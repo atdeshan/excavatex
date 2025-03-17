@@ -56,6 +56,11 @@
       padding: 10px 10px;
       width: 4em;
   }
+  .navbar-container img{
+    width: 25%;
+    
+  
+  }
 }
 .nav-links a{
 
@@ -70,5 +75,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 4em;
   
 }

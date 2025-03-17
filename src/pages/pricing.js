@@ -2,7 +2,7 @@ import React from "react";
 import PricingCalculator from "../components/pricingCal";
 import HapticDiv from "../components/hapticdiv";
 import "../styles/pricing.css";
-import TypingText from "../components/typing";
+
 
 const Pricing = () => {
   return (

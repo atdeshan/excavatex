@@ -1,81 +1,14 @@
-import React, { useRef, useState, useEffect, Suspense, useMemo } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import React from "react";
 import "../styles/home.css";
 import TypingText from "../components/typing";
-
-function Model({ url, rotationY, scale }) {
-  const modelRef = useRef();
-  const [model, setModel] = useState(null);
-
-  useEffect(() => {
-    const loader = new GLTFLoader();
-    let isMounted = true;
-
-    loader.load(url, (gltf) => {
-      if (isMounted) {
-        setModel(gltf.scene);
-      }
-    });
-
-    return () => {
-      isMounted = false;
-    };
-  }, [url]);
-
-  useFrame(() => {
-    if (modelRef.current) {
-      modelRef.current.rotation.y = rotationY;
-    }
-  }, [rotationY]);
-
-  if (!model) {
-    return null;
-  }
-
-  return <primitive object={model} ref={modelRef} position={[30, -11, 10]} scale={scale} />;
-}
-
-function My3DModel() {
-  const modelURL = useMemo(() => `${process.env.PUBLIC_URL}/images/gg.glb`, []);
-  const [rotationY, setRotationY] = useState(0);
-  const [cameraPosition, setCameraPosition] = useState([20, 10, 30]);
-  const [modelScale, setModelScale] = useState(1);
-
-  useEffect(() => {
-    const updateResponsiveSettings = () => {
-      if (window.innerWidth < 768) {
-        setCameraPosition([30, 0, 40]);
-        setModelScale(0.5);
-      } else {
-        setCameraPosition([60, 0, 30]);
-        setModelScale(1);
-      }
-    };
-
-    updateResponsiveSettings();
-    window.addEventListener("resize", updateResponsiveSettings);
-    
-    return () => window.removeEventListener("resize", updateResponsiveSettings);
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const rotation = (scrollY / window.innerHeight) * Math.PI * 0.1;
-      setRotationY(rotation);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+import Model from "../components/model";
+const Home = () => {
 
   return (
     <div className="home">
       <div className="title">
         <h1>
-          Reliable,<br/> Affordable,<br /> and Ready to <br />Dig!
+          Reliable,<br /> Affordable,<br /> and Ready to <br /> Dig!
           <TypingText texts={["!!!"]} speed={500} delay={2500} />
         </h1>
       </div>
@@ -92,13 +25,7 @@ function My3DModel() {
           </p>
         </div>
         <div className="canvas-container">
-          <Canvas camera={{ position: cameraPosition }}>
-            <ambientLight intensity={0.5} />
-            <directionalLight position={[1, 1, 1]} intensity={0.8} />
-            <Suspense fallback={null}>
-              <Model url={modelURL} rotationY={rotationY} scale={modelScale} />
-            </Suspense>
-          </Canvas>
+          <Model />
         </div>
       </div>
 
@@ -125,4 +52,4 @@ function My3DModel() {
   );
 }
 
-export default My3DModel;
+export default Home;

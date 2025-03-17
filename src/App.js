@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import Model from "./pages/home";
+import Home from "./pages/home";
 import Pricing from "./pages/pricing";
 import About from "./pages/about";
 import Navbar from "./components/navigationbar";
@@ -7,7 +7,7 @@ import Footer from "./components/footer";
 import "./App.css";
 
 function App() {
-  const navbarRef = useRef(null);
+  
   const homeRef = useRef(null);
   const aboutRef = useRef(null);
   const priceRef = useRef(null);
@@ -30,23 +30,21 @@ function App() {
     }
   };
   return (
-    
     <div>
       <Navbar scrollToSection={scrollToSection} />
       <div className="main-container">
-      <div ref={homeRef}>
-        <Model />
-      </div>
+        <div ref={homeRef}>
+          <Home />
+        </div>
 
-      <div ref={priceRef}>
-        <Pricing />
+        <div ref={priceRef}>
+          <Pricing />
+        </div>
+        <div ref={aboutRef}>
+          <About />
+        </div>
+        <Footer></Footer>
       </div>
-      <div ref={aboutRef}>
-        <About />
-      </div>
-      <Footer></Footer>
-      </div>
-
     </div>
   );
 }

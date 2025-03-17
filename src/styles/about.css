@@ -4,8 +4,8 @@
   justify-content: center;
   align-items: center;
   width: 100vw;
-  padding: 3em 5vw; /* Adds responsive padding */
   box-sizing: border-box;
+  
   text-align: center; /* Centers text for better readability */
 }
 
@@ -31,6 +31,10 @@
   margin-bottom: 1.5rem;
   line-height: 1.6; /* Improves readability */
   max-width: 900px; /* Limits width for better formatting */
+}
+.about-container p {
+  text-align: center;
+  max-width: 90%;
 }
 
 /* List Styling */

@@ -44,15 +44,6 @@ function TypingText({ texts, speed = 100, delay = 2000 }) {
   );
 }
 
-// Example usage (you can place this directly in your component where you need it)
-const myTexts = [
-  "Hello, world!",
-  "Welcome to my website!",
-  "This is a cool demo.",
-  "And it keeps going..."
-];
 
-// In your component's JSX:
-// <TypingText texts={myTexts} speed={30} delay={1500} />
 
 export default TypingText;

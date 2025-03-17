@@ -5,7 +5,6 @@
     justify-content: center;
     align-items: center;
     width: 100vw;
-    padding: 2rem 5vw; /* Add spacing */
     box-sizing: border-box;
 }
 
@@ -21,11 +20,11 @@
 /* Pricing Container */
 .pricing_container {
     display: flex;
-    flex-wrap: wrap; /* Ensures responsiveness */
+    flex-wrap: wrap;  
     justify-content: center;
     align-items: center;
-    width: 90%;
-    gap: 2rem; /* Adds spacing */
+    width: 100%;
+    gap: 5rem; /* Adds spacing */
 }
 
 /* Pricing Table */
@@ -56,6 +55,16 @@
 
 /* Calculator Section */
 .calculator_view {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    max-width: 600px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    gap: 1.5rem;
+}
+.haptic_view {
     display: flex;
     flex-direction: column;
     width: 40%;
@@ -112,6 +121,9 @@ input[type="range"]::-webkit-slider-thumb {
     .calculator_view {
         width: 60%;
     }
+    .haptic_view{
+        width: 70%;
+    }
 }
 
 @media (max-width: 768px) {
@@ -126,7 +138,7 @@ input[type="range"]::-webkit-slider-thumb {
     }
 
     .calculator_view {
-        width: 90%;
+        width: 70%;
     }
 
     .calculator_view h2 {
@@ -140,6 +152,9 @@ input[type="range"]::-webkit-slider-thumb {
 
     input[type="range"] {
         height: 10px;
+    }
+    .haptic_view{
+        width: 90%;
     }
 }
 
@@ -155,6 +170,9 @@ input[type="range"]::-webkit-slider-thumb {
     .calculator_view p,
     .calculator_view label {
         font-size: 1.5rem;
+    }
+    .haptic_view{
+        width: 70%;
     }
 
     .pricing th, 

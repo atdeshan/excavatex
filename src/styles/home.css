@@ -28,12 +28,13 @@
 /* Main Section */
 .home_main {
     display: flex;
-    flex-direction: row; /* Default to row */
+    flex-direction: row; 
     justify-content: center;
     align-items: center;
-    width: 100%; /* Ensure full width */
-    flex-wrap: wrap; /* Allow items to wrap if needed */
+    width: 100%; 
     gap: 2rem;
+    
+    
 }
 
 /* Canvas Container */
@@ -44,13 +45,24 @@
     width: 70%;
     height: 80vh;
     z-index: 1;
+    
+
+
+
+
+    
 }
 
+
 @media (max-width: 1024px) {
+    .home_main{
+        display: flex;
+    }
     .canvas-container {
-        width: 90%; /* Adjust width for tablets */
+        width: 70%; /* Adjust width for tablets */
         height: 60vh;
     }
+
 }
 
 @media (max-width: 768px) {
@@ -67,14 +79,14 @@
 }
 
 .description h1 {
-    font-size: 3rem;
+    font-size: 4.5rem;
     font-weight: 700;
     color: #ff9900;
     margin-bottom: 1.5rem;
 }
 
 .description p {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: #ffffff;
     margin-bottom: 1.5rem;
 }
@@ -85,7 +97,7 @@
     font-family: Arial, sans-serif;
     background-color: transparent;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(248, 247, 247, 0.1);
+    box-shadow: 0 0 10px rgba(255, 213, 0, 0.4);
     width: 100%;
     max-width: 90vw;
     padding: 2rem;
@@ -94,7 +106,7 @@
 .services h1 {
     text-align: center;
     color: #ff9900;
-    font-size: 2.5rem;
+    font-size: 4.5rem;
     margin-bottom: 20px;
 }
 
@@ -104,18 +116,18 @@
     margin-bottom: 15px;
     padding: 15px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(244, 244, 244, 0.1);
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.4)
 }
 
 .service-item b {
     display: block;
     color: #ff9900;
-    font-size: 1.8rem;
+    font-size: 2rem;
     margin-bottom: 8px;
 }
 
 .service-item p {
-    font-size: 1.3rem;
+    font-size: 1.8rem;
     color: #ffffff;
     margin: 0;
 }
