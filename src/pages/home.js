@@ -1,8 +1,9 @@
-import React from "react";
+import React ,{ Suspense, lazy } from "react";
 import "../styles/home.css";
 import TypingText from "../components/typing";
 import Model from "../components/model";
 const Home = () => {
+  const LazyModel = lazy(() => import('../components/model'));
 
   return (
     <div className="home">
@@ -25,7 +26,9 @@ const Home = () => {
           </p>
         </div>
         <div className="canvas-container">
-          <Model />
+        <Suspense fallback={<div>Loading Model...</div>}>
+  <LazyModel />
+</Suspense>
         </div>
       </div>
 
