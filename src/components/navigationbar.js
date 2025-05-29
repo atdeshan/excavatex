@@ -29,7 +29,7 @@ const Navbar = ({ scrollToSection }) => {
               onClick={() => scrollToSection("about")}
               className="hover:text-gray-400"
             >
-              about
+              About
             </button>
           </li>
         </ul>

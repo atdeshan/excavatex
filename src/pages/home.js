@@ -1,7 +1,7 @@
 import React ,{ Suspense, lazy } from "react";
 import "../styles/home.css";
 import TypingText from "../components/typing";
-import Model from "../components/model";
+
 const Home = () => {
   const LazyModel = lazy(() => import('../components/model'));
 
